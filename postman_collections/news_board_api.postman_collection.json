@@ -1,0 +1,344 @@
+{
+	"info": {
+		"_postman_id": "9fc09fc2-a011-4444-9a5d-2d01d7a7c301",
+		"name": "news_board_api",
+		"description": "News Board API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. API Root Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}",
+					"host": [
+						"{{base_url}}"
+					]
+				},
+				"description": "Reads endpoints for API roots"
+			},
+			"response": []
+		},
+		{
+			"name": "2. Get All News Posts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/posts/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"posts",
+						""
+					]
+				},
+				"description": "Reads all news posts in descending order of creation date."
+			},
+			"response": []
+		},
+		{
+			"name": "3. Get News Post by ID ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/posts/{{post_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"posts",
+						"{{post_id}}"
+					]
+				},
+				"description": "Gets news post by post id."
+			},
+			"response": []
+		},
+		{
+			"name": "4. Upvotes News Post",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/posts/{{post_id}}/upvote/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"posts",
+						"{{post_id}}",
+						"upvote",
+						""
+					]
+				},
+				"description": "Sends PUT request to update upvote count for news post by ID."
+			},
+			"response": []
+		},
+		{
+			"name": "5. Get All Comments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/comments/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"comments",
+						""
+					]
+				},
+				"description": "Read all existing comments."
+			},
+			"response": []
+		},
+		{
+			"name": "6. Get Comment by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/comments/{{comment_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"comments",
+						"{{comment_id}}"
+					]
+				},
+				"description": "Read comment by comment ID"
+			},
+			"response": []
+		},
+		{
+			"name": "7. Create New Post ",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"{{post_title}}\",\n    \"link\": \"{{post_link}}\",\n    \"author\": \"{{post_author}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/posts/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"posts",
+						""
+					]
+				},
+				"description": "Sends POST request to create new post."
+			},
+			"response": []
+		},
+		{
+			"name": "8. Update Post by ID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": {{post_id}},\n    \"comments\": [],\n    \"title\": \"{{post_title}}\",\n    \"link\": \"{{post_link}}\",\n    \"created\": \"{{post_created}}\",\n    \"author\": \"{{post_author}}\",\n    \"upvotes\": {{post_upvotes}}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/posts/{{post_id}}/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"posts",
+						"{{post_id}}",
+						""
+					]
+				},
+				"description": "Send PUT request to update post by post ID."
+			},
+			"response": []
+		},
+		{
+			"name": "9. Partial Update of Post by ID",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"author\": \"{{post_author}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/posts/{{post_id}}/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"posts",
+						"{{post_id}}",
+						""
+					]
+				},
+				"description": "Sends PATCH request to update selected post fields, by post ID."
+			},
+			"response": []
+		},
+		{
+			"name": "10. Delete Post by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/posts/{{post_id}}/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"posts",
+						"{{post_id}}",
+						""
+					]
+				},
+				"description": "Delete post by ID."
+			},
+			"response": []
+		},
+		{
+			"name": "11. Create New Comment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"content\": \"{{comment_content}}\",\n    \"author\": \"{{comment_author}}\",\n    \"post\": \"{{post_id}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/comments/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"comments",
+						""
+					]
+				},
+				"description": "Sends POST request to create new comment, post ID needs to be specified."
+			},
+			"response": []
+		},
+		{
+			"name": "12. Update Comment by ID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"content\": \"{{post_title}}\",\n    \"author\": \"{{comment_author}}\",\n    \"post\": \"{{post_id}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/comments/{{comment_id}}/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"comments",
+						"{{comment_id}}",
+						""
+					]
+				},
+				"description": "Sends PUT request to update existing comment by comment ID"
+			},
+			"response": []
+		},
+		{
+			"name": "13. Partial Update of Comment by ID",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"content\": \"{{comment_content}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/comments/{{comment_id}}/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"comments",
+						"{{comment_id}}",
+						""
+					]
+				},
+				"description": "Sends PATCH request to update specific fields in comment by ID."
+			},
+			"response": []
+		},
+		{
+			"name": "14. Delete Comment by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": {{comment_id}}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/comments/{{comment_id}}/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"comments",
+						"{{comment_id}}",
+						""
+					]
+				},
+				"description": "Sends DELETE request to comment by ID"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
