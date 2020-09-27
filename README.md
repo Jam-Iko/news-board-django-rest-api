@@ -22,7 +22,7 @@ $ docker-compose down
 - Has an endpoint to upvote the post (posts/<int:pk>/upvote/)
 - Set up a recurring job running once a day to reset post upvotes count
 
-## **Completed Technical Requirements**
+## **Technical Requirements**
 
 - Code written with Python 3
 - REST API is Django and Django REST Framework based
