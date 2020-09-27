@@ -1,4 +1,4 @@
-# Develops Today Python Test Assignment
+# News Board Django REST API
 
 To run locally:
 ```
